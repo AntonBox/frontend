@@ -1,13 +1,13 @@
-export function usersFetchDataSuccess(data){
+export function fansFetchDataSuccess(data){
     return{
         type: "FETCH_FANS_SUCCESS",
-        payload: data
+        fans: data
     }
 }
 
-export function sendUsernameAction(username) {
+export default function fetchFansAction(username) {
     return (dispatch) => {
-        fetch(`/likes/get_likes/?username=${username}`)
+        fetch(`http://127.0.0.1:8000/likes/get_likes/?username=${username}`)
             .then(response => {
                 if(!response.ok) {
                     throw new Error(response.statusText);
@@ -15,7 +15,7 @@ export function sendUsernameAction(username) {
                 return response;
             })
             .then(response => response.json())
-            .then(data => dispatch(usersFetchDataSuccess(data)))
+            .then(data => dispatch(fansFetchDataSuccess(data)))
             .catch(()=>{});
     }
 }

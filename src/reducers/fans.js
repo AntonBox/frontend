@@ -1,11 +1,7 @@
-const initialState = {
-    fans: ''
-}
-
-export default function fetchFans(state = initialState, action){
+export default function fetchFans(action, state = []){
     switch(action.type){
         case "FETCH_FANS_SUCCESS":
-            return {...state, fans: action.payload}
+            return {fans: action.fans}
         default:
             return state
     }
