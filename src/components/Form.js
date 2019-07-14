@@ -10,9 +10,8 @@ class Form extends Component {
     }
 
     handleSubmit(event){
-        let username = this.state.username;
         event.preventDefault();
-        return this.props.sendUsername(username);
+        return this.props.sendUsername(this.state.username);
     }
 
     handleInput(event){

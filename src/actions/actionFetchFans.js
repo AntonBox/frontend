@@ -1,8 +1,8 @@
-export function fansFetchDataSuccess(data){
+export function fansFetchDataSuccess(fans){
     return{
         type: "FETCH_FANS_SUCCESS",
-        fans: data
-    }
+        fans
+    };
 }
 
 export default function fetchFansAction(username) {
@@ -15,7 +15,7 @@ export default function fetchFansAction(username) {
                 return response;
             })
             .then(response => response.json())
-            .then(data => dispatch(fansFetchDataSuccess(data)))
+            .then(fans => dispatch(fansFetchDataSuccess(fans)))
             .catch(()=>{});
     }
 }

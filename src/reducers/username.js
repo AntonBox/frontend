@@ -1,7 +1,7 @@
-export default function sendUsername(action, state = []){
+export default function sendUsername(state = [], action){
     switch(action.type){
         case "SEND_USERNAME_SUCCESS":
-            return {username: action.username}
+            return {...state, username: action.username}
         default:
             return state
     }

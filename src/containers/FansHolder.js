@@ -10,6 +10,7 @@ class FansHolder extends Component {
     render(){
         return (
             <div className="fansHolder">
+                {this.props.username}
                 <ul>       
                 {this.props.fans.map((fan, index)=> {
                     return (<li key={index}>

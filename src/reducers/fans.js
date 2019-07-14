@@ -1,7 +1,7 @@
-export default function fetchFans(action, state = []){
+export default function fetchFans(state = {fans: []}, action){
     switch(action.type){
         case "FETCH_FANS_SUCCESS":
-            return {fans: action.fans}
+            return {...state, fans: action.fans}
         default:
             return state
     }

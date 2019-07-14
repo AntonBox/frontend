@@ -9,7 +9,6 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        УРААААА
         <Form sendUsername={this.props.sendUsernameFunction}/>
         <Link to='/fans'>Fans</Link>
       </div>
@@ -22,10 +21,8 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return{
-    sendUsernameFunction: username => {
-      dispatch(sendUsernameAction(username))
-    }
+  return {
+    sendUsernameFunction: username => dispatch(sendUsernameAction(username))
   }
 }
 
