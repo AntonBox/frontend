@@ -5,21 +5,25 @@ import Main from './containers/Main';
 import * as serviceWorker from './serviceWorker';
 
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers/index';
 
+import { Router } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
+
 import { composeWithDevTools } from "redux-devtools-extension";
 
+
+export const history = createBrowserHistory()
 
 const store = createStore(rootReducer,
     composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(<Provider store={store}>
-                    <BrowserRouter>
+                    <Router history={history}>
                         <Main />
-                    </BrowserRouter>
+                    </Router>
                 </Provider>,
                 document.getElementById('root'));
 
